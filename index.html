@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#183e2a" />
-  <meta name="description" content="Family-friendly volunteer accounts for St. Jude Music Ministry." />
+  <meta name="theme-color" content="#173f3a" />
+  <meta name="description" content="Volunteer accounts for individuals and households serving with St. Jude Music Ministry." />
   <title>Volunteer Accounts | St. Jude Music Ministry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,34 +14,25 @@
 <body>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <main id="loginView" class="login-shell">
-    <section class="login-story" aria-label="Welcome">
-      <div class="brand brand-light">
+  <main id="loginView" class="login-shell selected-login">
+    <header class="selected-header">
+      <div class="brand">
         <img src="LOGOSMALL.png" alt="St. Jude Music Ministry logo" />
         <div><strong>St. Jude</strong><span>Music Ministry</span></div>
       </div>
-      <div class="story-copy">
-        <p class="eyebrow">Serve together</p>
-        <h1>Your family’s volunteer life, all in one place.</h1>
-        <p>Keep every family member, signup, contact, and opportunity organized under one secure household account.</p>
-        <ul>
-          <li><span>✓</span> One account for adults and children</li>
-          <li><span>✓</span> Multiple emails and phone numbers</li>
-          <li><span>✓</span> Personalized opportunity suggestions</li>
-        </ul>
-      </div>
-      <p class="verse">“As each one has received a gift, use it to serve one another.” <span>— 1 Peter 4:10</span></p>
-    </section>
-
-    <section class="login-panel">
-      <div class="mobile-brand brand">
-        <img src="LOGOSMALL.png" alt="St. Jude Music Ministry logo" />
-        <div><strong>St. Jude</strong><span>Music Ministry</span></div>
+      <span>Volunteer accounts</span>
+    </header>
+    <section class="selected-login-layout">
+      <div class="selected-copy">
+        <p class="eyebrow">Share your gifts</p>
+        <h1>Your place to serve, connect, and belong.</h1>
+        <p>Discover opportunities, manage your commitments, and stay connected with St. Jude Music Ministry—whether you volunteer on your own or with others in your household.</p>
+        <div class="account-fit"><b>Start with the account that fits you.</b><span>Create an individual account, or include other adults and children under one shared household login. Every volunteer can choose a personal Volunteer ID.</span></div>
       </div>
       <div class="login-card">
         <p class="eyebrow">Volunteer portal</p>
         <h2>Welcome back</h2>
-        <p class="muted">Sign in with your account email. Each family member still receives a personal Volunteer ID.</p>
+        <p class="muted">Sign in with the email connected to your account.</p>
         <form id="loginForm">
           <label>Email address
             <input id="loginIdentity" type="email" autocomplete="username" placeholder="name@example.com" required />
@@ -53,11 +44,10 @@
           <button class="primary full" type="submit">Sign in</button>
         </form>
         <div class="divider"><span>New to volunteering?</span></div>
-        <button id="openCreate" class="secondary full" type="button">Create a family or individual account</button>
+        <button id="openCreate" class="secondary full" type="button">Create an individual or household account</button>
         <button id="demoLogin" class="demo-link" type="button">Preview a sample account</button>
-      </div>
-      <p class="support">Need help? Contact the St. Jude Music Ministry office.</p>
     </section>
+    <p class="support selected-support">Need help? Contact the St. Jude Music Ministry office.</p>
   </main>
 
   <div id="createModal" class="modal" hidden>
@@ -70,11 +60,11 @@
       <div class="steps" aria-label="Account creation progress"><span class="active">1</span><i></i><span>2</span><i></i><span>3</span></div>
       <form id="createForm">
         <section class="form-step active" data-step="1">
-          <p class="eyebrow">Step 1 of 3</p><h2 id="createTitle">Start your household account</h2>
-          <p class="muted">One login can manage you, another adult, and all children in your household.</p>
+          <p class="eyebrow">Step 1 of 3</p><h2 id="createTitle">Choose the account that fits you</h2>
+          <p class="muted">Start with an individual account or manage other adults and children under one shared login.</p>
           <div class="choice-grid">
-            <label class="choice selected"><input type="radio" name="accountType" value="family" checked /><b>Family account</b><span>Manage adults and children together</span></label>
-            <label class="choice"><input type="radio" name="accountType" value="individual" /><b>Individual account</b><span>Just me for now—you can add family later</span></label>
+            <label class="choice"><input type="radio" name="accountType" value="family" /><b>Household account</b><span>Manage adults and children together</span></label>
+            <label class="choice selected"><input type="radio" name="accountType" value="individual" checked /><b>Individual account</b><span>Just me for now—you can add others later</span></label>
           </div>
           <label>Household or account name<input id="householdName" placeholder="e.g., The Kochel Family" required /></label>
         </section>
@@ -104,40 +94,40 @@
         <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
         <button class="nav-item" data-page="signups"><span>▣</span> My sign-ups <b id="signupCount">2</b></button>
         <button class="nav-item" data-page="opportunities"><span>♡</span> Opportunities</button>
-        <button class="nav-item" data-page="family"><span>♙</span> Family members</button>
+        <button class="nav-item" data-page="family"><span>♙</span> People on my account</button>
         <button class="nav-item" data-page="contacts"><span>✉</span> Emails & phones</button>
         <button class="nav-item" data-page="settings"><span>⚙</span> Account settings</button>
       </nav>
-      <div class="sidebar-help"><strong>Need assistance?</strong><p>We’re happy to help your family get connected.</p><button class="text-button light" data-demo="support">Contact ministry office</button></div>
+      <div class="sidebar-help"><strong>Need assistance?</strong><p>We’re happy to help you get connected.</p><button class="text-button light" data-demo="support">Contact ministry office</button></div>
       <button id="logout" class="nav-item logout"><span>↪</span> Sign out</button>
     </aside>
 
     <section class="main-content">
       <header class="topbar">
         <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
-        <div><span class="muted">Household account</span><strong id="topHousehold">The Kochel Family</strong></div>
+        <div><span class="muted">Volunteer account</span><strong id="topHousehold">The Kochel Family</strong></div>
         <button class="avatar" id="avatarButton" aria-label="Account menu">RK</button>
       </header>
 
       <section id="dashboardPage" class="page active">
-        <div class="welcome-row"><div><p class="eyebrow">Tuesday, August 25</p><h1>Welcome back, Richard!</h1><p class="muted">Here’s what your family has coming up.</p></div><button class="primary" data-go="opportunities">Find an opportunity</button></div>
+        <div class="welcome-row"><div><p class="eyebrow">Tuesday, August 25</p><h1>Welcome back, Richard!</h1><p class="muted">Here’s what is coming up on your account.</p></div><button class="primary" data-go="opportunities">Find an opportunity</button></div>
         <div class="stat-grid">
           <article><span class="stat-icon green">✓</span><div><b id="statUpcoming">2</b><small>Upcoming sign-ups</small></div></article>
-          <article><span class="stat-icon gold">♙</span><div><b id="statFamily">3</b><small>Family members</small></div></article>
+          <article><span class="stat-icon gold">♙</span><div><b id="statFamily">3</b><small>People on account</small></div></article>
           <article><span class="stat-icon cream">☆</span><div><b>14</b><small>Hours served this year</small></div></article>
         </div>
         <div class="dashboard-grid">
           <section class="panel"><div class="panel-head"><div><p class="eyebrow">Your schedule</p><h2>Upcoming commitments</h2></div><button class="text-button" data-go="signups">View all</button></div><div id="upcomingList" class="commitment-list"></div></section>
           <aside class="panel household-card"><p class="eyebrow">Volunteer identity</p><h2 id="householdCardName">The Kochel Family</h2><div class="id-chip"><span>Volunteer ID</span><b id="dashboardId">SJ-KochelFamily</b></div><div id="memberAvatars" class="member-avatars"></div><button class="secondary full" data-go="family">Manage household</button></aside>
         </div>
-        <section class="recommendations"><div class="panel-head"><div><p class="eyebrow">Picked for your family</p><h2>Suggested opportunities</h2></div><button class="text-button" data-go="opportunities">Browse all</button></div><div id="suggestionCards" class="opportunity-grid"></div></section>
+        <section class="recommendations"><div class="panel-head"><div><p class="eyebrow">Recommended for you</p><h2>Suggested opportunities</h2></div><button class="text-button" data-go="opportunities">Browse all</button></div><div id="suggestionCards" class="opportunity-grid"></div></section>
       </section>
 
       <section id="signupsPage" class="page"><div class="page-title"><div><p class="eyebrow">My sign-ups</p><h1>Volunteer schedule</h1><p class="muted">Every commitment for every member of your household.</p></div></div><div id="allSignups" class="panel list-panel"></div></section>
 
       <section id="opportunitiesPage" class="page"><div class="page-title"><div><p class="eyebrow">Discover</p><h1>Volunteer opportunities</h1><p class="muted">Suggestions are based on your household’s interests and availability.</p></div></div><div class="filter-bar"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="music">Music</button><button class="filter" data-filter="hospitality">Hospitality</button><button class="filter" data-filter="family">Family-friendly</button></div><div id="allOpportunities" class="opportunity-grid all"></div></section>
 
-      <section id="familyPage" class="page"><div class="page-title"><div><p class="eyebrow">One account, everyone included</p><h1>Family members</h1><p class="muted">Each person has their own interests, availability, and volunteer history—without needing another login.</p></div><button id="addMember" class="primary">Add family member</button></div><div class="family-explainer"><span>1</span><p><b>One household login</b><small>Parents or guardians sign in once.</small></p><i>→</i><span>2</span><p><b>Individual family profiles</b><small>Adults and children each get a profile.</small></p><i>→</i><span>3</span><p><b>Choose who is volunteering</b><small>Assign each signup to the right person.</small></p></div><div id="familyList" class="family-grid"></div></section>
+      <section id="familyPage" class="page"><div class="page-title"><div><p class="eyebrow">One account, everyone included</p><h1>People on my account</h1><p class="muted">Volunteer individually or add others. Each person has their own interests, Volunteer ID, and service history.</p></div><button id="addMember" class="primary">Add a person</button></div><div class="family-explainer"><span>1</span><p><b>Start with yourself</b><small>Your individual profile is ready first.</small></p><i>→</i><span>2</span><p><b>Add others if needed</b><small>Adults and children can share your login.</small></p><i>→</i><span>3</span><p><b>Choose who is volunteering</b><small>Assign each signup to the right person.</small></p></div><div id="familyList" class="family-grid"></div></section>
 
       <section id="contactsPage" class="page"><div class="page-title"><div><p class="eyebrow">Household contacts</p><h1>Emails & phone numbers</h1><p class="muted">Attach several contacts to this one account and decide which person each belongs to.</p></div><button id="addContact" class="primary">Add contact</button></div><div class="privacy-note"><b>Why we request a phone number</b><p>Used to validate account as well as for volunteer-related communications.</p></div><div class="contact-columns"><section class="panel"><div class="panel-head"><h2>Email addresses</h2><button class="text-button add-email">+ Add email</button></div><div id="emailList"></div></section><section class="panel"><div class="panel-head"><h2>Phone numbers</h2><button class="text-button add-phone">+ Add phone</button></div><div id="phoneList"></div></section></div></section>
 
