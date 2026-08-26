@@ -41,10 +41,10 @@
       <div class="login-card">
         <p class="eyebrow">Volunteer portal</p>
         <h2>Welcome back</h2>
-        <p class="muted">Sign in with your Volunteer ID, email, or phone number.</p>
+        <p class="muted">Sign in with your account email. Each family member still receives a personal Volunteer ID.</p>
         <form id="loginForm">
-          <label>Volunteer ID, email, or phone
-            <input id="loginIdentity" autocomplete="username" placeholder="e.g., KochelFamily" required />
+          <label>Email address
+            <input id="loginIdentity" type="email" autocomplete="username" placeholder="name@example.com" required />
           </label>
           <label>Password
             <span class="password-wrap"><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required /><button class="show-password" type="button" data-target="loginPassword">Show</button></span>
@@ -80,8 +80,9 @@
         </section>
         <section class="form-step" data-step="2">
           <p class="eyebrow">Step 2 of 3</p><h2>Choose your Volunteer ID</h2>
-          <p class="muted">Make an ID that is memorable for your household. You can change it later in Account Settings.</p>
-          <label>Volunteer ID<div class="id-field"><span>SJ-</span><input id="volunteerId" minlength="4" maxlength="24" pattern="[A-Za-z0-9_-]+" placeholder="KochelFamily" required /></div><small id="idStatus">Use 4–24 letters, numbers, hyphens, or underscores.</small></label>
+          <p class="muted">Choose your own personal ID. Other family members can choose their IDs when you add them.</p>
+          <label>Your Volunteer ID<div class="id-field"><span>SJ-</span><input id="volunteerId" minlength="3" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9_-]{2,31}" placeholder="RichardK" required /></div><small id="idStatus">Use 3–32 letters, numbers, hyphens, or underscores.</small></label>
+          <label>Your name<input id="accountManagerName" maxlength="100" placeholder="e.g., Richard Kochel" required /></label>
           <label>Create password<span class="password-wrap"><input id="newPassword" type="password" minlength="8" required placeholder="At least 8 characters" /><button class="show-password" type="button" data-target="newPassword">Show</button></span></label>
         </section>
         <section class="form-step" data-step="3">
@@ -146,6 +147,8 @@
 
   <div id="simpleModal" class="modal" hidden><div class="modal-card small" role="dialog" aria-modal="true"><button class="close simple-close" type="button" aria-label="Close">×</button><div id="simpleModalContent"></div></div></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
