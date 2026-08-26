@@ -73,6 +73,8 @@ async function ensureHousehold(user){
 
 async function loadAccount(){
   const {data:{user}}=await db.auth.getUser(); if(!user)return showLogin();
+  const adminAccess=await db.from("admin_users").select("user_id").eq("user_id",user.id).maybeSingle();
+  $("#adminShortcut").hidden=Boolean(adminAccess.error||!adminAccess.data);
   const householdId=await ensureHousehold(user);
   const results=await Promise.all([
     db.from("households").select("id,account_name").eq("id",householdId).single(),
