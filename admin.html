@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173f3a" />
+  <meta name="description" content="Manage St. Jude Music Ministry volunteer opportunities and sign-ups." />
+  <title>Opportunity Manager | St. Jude Music Ministry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css?v=20260826-1" />
+</head>
+<body>
+  <div id="adminToast" class="toast" role="status" aria-live="polite"></div>
+
+  <main id="adminLogin" class="admin-login">
+    <section class="login-intro">
+      <div class="brand brand-light">
+        <img src="LOGOSMALL.png" alt="St. Jude Music Ministry logo" />
+        <div><strong>St. Jude</strong><span>Music Ministry</span></div>
+      </div>
+      <div class="intro-copy">
+        <p class="eyebrow light">Volunteer administration</p>
+        <h1>Opportunity Manager</h1>
+        <p>Create volunteer opportunities, publish them to the portal, and see who has signed up.</p>
+        <ul>
+          <li><span>1</span> Create and schedule an opportunity</li>
+          <li><span>2</span> Publish it to volunteer accounts</li>
+          <li><span>3</span> Review and download the roster</li>
+        </ul>
+      </div>
+      <a class="back-link light" href="index.html">← Return to the volunteer portal</a>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="mobile-brand brand">
+          <img src="LOGOSMALL.png" alt="" />
+          <div><strong>St. Jude</strong><span>Music Ministry</span></div>
+        </div>
+        <p class="eyebrow">Administrator access</p>
+        <h2>Sign in to manage opportunities</h2>
+        <p class="muted">Use your approved Music Ministry administrator account.</p>
+        <form id="adminLoginForm">
+          <label>Email address
+            <input id="adminEmail" type="email" autocomplete="username" required />
+          </label>
+          <label>Password
+            <span class="password-wrap">
+              <input id="adminPassword" type="password" autocomplete="current-password" required />
+              <button id="showAdminPassword" type="button">Show</button>
+            </span>
+          </label>
+          <button id="adminSignIn" class="primary full" type="submit">Sign in</button>
+        </form>
+        <p id="adminLoginStatus" class="form-status" role="status" aria-live="polite"></p>
+        <a class="back-link" href="index.html">Return to volunteer sign-in</a>
+      </div>
+    </section>
+  </main>
+
+  <main id="adminApp" class="admin-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand compact brand-light">
+        <img src="LOGOSMALL.png" alt="St. Jude Music Ministry logo" />
+        <div><strong>St. Jude</strong><span>Music Ministry</span></div>
+      </div>
+      <div class="admin-label">ADMINISTRATION</div>
+      <nav aria-label="Admin navigation">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-page="opportunities"><span>◇</span> Opportunities</button>
+        <button class="nav-item" data-page="signups"><span>▣</span> Sign-up roster</button>
+      </nav>
+      <div class="sidebar-help">
+        <strong>Volunteer portal</strong>
+        <p>See exactly what volunteers see.</p>
+        <a href="index.html">Open volunteer portal →</a>
+      </div>
+      <button id="adminLogout" class="nav-item logout"><span>↪</span> Sign out</button>
+    </aside>
+
+    <section class="admin-main">
+      <header class="topbar">
+        <button id="adminMenuToggle" class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+        <div><span class="muted">St. Jude Music Ministry</span><strong>Admin Opportunity Manager</strong></div>
+        <div class="top-actions">
+          <button class="secondary compact-button" data-open-form>+ New opportunity</button>
+          <span id="adminInitials" class="avatar">RK</span>
+        </div>
+      </header>
+
+      <section id="dashboardPage" class="page active">
+        <div class="page-title">
+          <div><p class="eyebrow">ADMIN DASHBOARD</p><h1>Volunteer opportunities at a glance</h1><p class="muted">Create, publish, and monitor every opportunity from one place.</p></div>
+          <button class="primary" data-open-form>Create an opportunity</button>
+        </div>
+        <div class="stat-grid">
+          <article><span class="stat-icon green">◇</span><div><b id="upcomingCount">0</b><small>Upcoming opportunities</small></div></article>
+          <article><span class="stat-icon gold">▣</span><div><b id="totalSignupCount">0</b><small>Active sign-ups</small></div></article>
+          <article><span class="stat-icon cream">♙</span><div><b id="volunteerCount">0</b><small>Volunteers signed up</small></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="panel">
+            <div class="panel-head"><div><p class="eyebrow">COMING UP</p><h2>Upcoming opportunities</h2></div><button class="text-button" data-page-link="opportunities">Manage all</button></div>
+            <div id="dashboardOpportunities" class="dashboard-list"></div>
+          </section>
+          <aside class="panel getting-started">
+            <p class="eyebrow">QUICK GUIDE</p><h2>Publish in three steps</h2>
+            <ol><li><span>1</span><div><b>Add the details</b><small>Date, location, capacity, and description</small></div></li><li><span>2</span><div><b>Choose “Published”</b><small>It appears immediately in volunteer accounts</small></div></li><li><span>3</span><div><b>Watch the roster</b><small>See who signs up in real time</small></div></li></ol>
+          </aside>
+        </div>
+      </section>
+
+      <section id="opportunitiesPage" class="page">
+        <div class="page-title">
+          <div><p class="eyebrow">OPPORTUNITY MANAGER</p><h1>Opportunities</h1><p class="muted">Draft, publish, edit, or archive volunteer opportunities.</p></div>
+          <button class="primary" data-open-form>+ New opportunity</button>
+        </div>
+        <div class="toolbar">
+          <div class="filter-tabs" role="group" aria-label="Opportunity filters">
+            <button class="filter active" data-filter="upcoming">Upcoming</button>
+            <button class="filter" data-filter="drafts">Drafts & archived</button>
+            <button class="filter" data-filter="all">All</button>
+          </div>
+          <label class="search-field"><span>Search</span><input id="opportunitySearch" type="search" placeholder="Title, category, or location" /></label>
+        </div>
+        <div id="opportunityList" class="opportunity-list"></div>
+      </section>
+
+      <section id="signupsPage" class="page">
+        <div class="page-title">
+          <div><p class="eyebrow">SIGN-UP ROSTER</p><h1>Volunteer sign-ups</h1><p class="muted">See who is serving and download the current roster.</p></div>
+          <button id="downloadRoster" class="secondary">Download roster CSV</button>
+        </div>
+        <div class="toolbar roster-toolbar">
+          <label class="search-field"><span>Search</span><input id="signupSearch" type="search" placeholder="Volunteer or opportunity" /></label>
+          <label class="select-field"><span>Status</span><select id="signupStatusFilter"><option value="active">Active sign-ups</option><option value="all">All statuses</option><option value="cancelled">Cancelled</option><option value="completed">Completed</option></select></label>
+        </div>
+        <section class="panel roster-panel"><div id="signupRoster"></div></section>
+      </section>
+    </section>
+  </main>
+
+  <div id="opportunityModal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="opportunityFormTitle">
+      <button id="closeOpportunityModal" class="close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">OPPORTUNITY DETAILS</p>
+      <h2 id="opportunityFormTitle">Create an opportunity</h2>
+      <p class="muted">Volunteers will see these details in their accounts when the opportunity is published.</p>
+      <form id="opportunityForm">
+        <input id="opportunityId" type="hidden" />
+        <div class="form-grid">
+          <label class="wide">Title<input id="opportunityTitle" maxlength="140" required placeholder="e.g., Confirmation Mass Choir" /></label>
+          <label>Category<select id="opportunityCategory" required><option value="Music">Music</option><option value="Liturgy">Liturgy</option><option value="Hospitality">Hospitality</option><option value="Family">Family</option><option value="General">General</option></select></label>
+          <label>Location<input id="opportunityLocation" maxlength="140" required placeholder="e.g., Church" /></label>
+          <label>Starts<input id="opportunityStarts" type="datetime-local" required /></label>
+          <label>Ends<input id="opportunityEnds" type="datetime-local" /></label>
+          <label>Capacity<input id="opportunityCapacity" type="number" min="1" max="10000" placeholder="Leave blank for unlimited" /></label>
+          <label class="wide">Description<textarea id="opportunityDescription" rows="4" maxlength="1200" required placeholder="Tell volunteers what they will do and what they need to know."></textarea></label>
+        </div>
+        <div class="option-row">
+          <label class="check-card"><input id="opportunityFamilyFriendly" type="checkbox" /><span><b>Family-friendly</b><small>Appropriate for adults and children serving together</small></span></label>
+          <label class="check-card"><input id="opportunityPublished" type="checkbox" checked /><span><b>Published</b><small>Visible in volunteer accounts immediately</small></span></label>
+        </div>
+        <div class="modal-actions"><button id="cancelOpportunity" class="secondary" type="button">Cancel</button><button id="saveOpportunity" class="primary" type="submit">Save opportunity</button></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0"></script>
+  <script src="config.js"></script>
+  <script src="admin.js?v=20260826-1"></script>
+</body>
+</html>
