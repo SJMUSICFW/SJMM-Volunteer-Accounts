@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260826-1" />
+  <link rel="stylesheet" href="styles.css?v=20260826-2" />
 </head>
 <body>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -98,6 +98,7 @@
         <button class="nav-item" data-page="family"><span>♙</span> People on my account</button>
         <button class="nav-item" data-page="contacts"><span>✉</span> Emails & phones</button>
         <button class="nav-item" data-page="settings"><span>⚙</span> Account settings</button>
+        <a id="adminShortcut" class="nav-item admin-shortcut" href="admin.html" hidden><span>◇</span> Admin manager</a>
       </nav>
       <div class="sidebar-help"><strong>Need assistance?</strong><p>We’re happy to help you get connected.</p><button class="text-button light" data-demo="support">Contact ministry office</button></div>
       <button id="logout" class="nav-item logout"><span>↪</span> Sign out</button>
@@ -140,6 +141,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
-  <script src="app.js?v=20260826-1"></script>
+  <script src="app.js?v=20260826-2"></script>
 </body>
 </html>
